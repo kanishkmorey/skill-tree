@@ -151,3 +151,10 @@ This project has domain-specific skills available in `**/skills/**`. You MUST ac
 - Do NOT delete tests without approval.
 
 </laravel-boost-guidelines>
+
+## Third-Party APIs
+
+- This project uses 36Blocks for authentication.
+- Project-specific integration details (middleware behavior, the `user` request attribute) are documented in `docs/third-party-apis.md`.
+- A real `/c/getDetails` response is available at `fixtures/third-party-api/36blocks-get-details.json`.
+- When working with `Authenticate36Blocks` or the `user` request attribute, consult those files.

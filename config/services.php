@@ -35,4 +35,9 @@ return [
         ],
     ],
 
+    '36blocks' => [
+        'base_url' => env('36BLOCKS_BASE_URL', 'https://routes.msg91.com/api'),
+        'feature_configuration_id' => env('36BLOCKS_FEATURE_CONFIGURATION_ID'),
+    ],
+
 ];

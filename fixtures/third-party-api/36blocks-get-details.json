@@ -1,0 +1,86 @@
+{
+  "data": [
+    {
+      "id": 166503,
+      "name": "Kanishk Morey",
+      "mobile": null,
+      "email": "kanishkmorey@whozzat.com",
+      "client_id": 34,
+      "meta": null,
+      "created_at": "2026-08-24T06:19:41.000000Z",
+      "updated_at": "2026-08-24T06:19:42.000000Z",
+      "last_login_at": "2026-08-24T06:19:42.000000Z",
+      "is_block": false,
+      "feature_configuration_id": 171,
+      "is_password_verified": 0,
+      "profile_picture_url": "https://lh3.googleusercontent.com/a/ACg8ocJfTs-RGvScsXWpf3bgeqyJ6uK2Mp3b55gqZTiJF6xbOlXYKg=s96-c",
+      "deleted_at_unique": "1000-01-01 00:00:00",
+      "c_companies": [
+        {
+          "id": 76851,
+          "name": "Kanishk Morey",
+          "company_uname": "22647915",
+          "mobile": null,
+          "email": "kanishkmorey@whozzat.com",
+          "feature_configuration_id": 171,
+          "meta": null,
+          "created_at": "2026-08-24T06:19:41.000000Z",
+          "updated_at": "2026-08-24T06:19:41.000000Z",
+          "timezone": "+05:30",
+          "timeZoneName": "(UTC+05:30) Asia/Kolkata",
+          "is_block": false,
+          "created_by": 166503,
+          "is_readable": false,
+          "role_id": 1,
+          "role_name": "Owner"
+        }
+      ],
+      "currentCompany": {
+        "name": "Kanishk Morey",
+        "company_uname": "22647915",
+        "mobile": null,
+        "email": "kanishkmorey@whozzat.com",
+        "feature_configuration_id": 171,
+        "meta": null,
+        "timezone": "+05:30",
+        "timeZoneName": "(UTC+05:30) Asia/Kolkata",
+        "is_block": false,
+        "created_by": 166503,
+        "is_readable": false,
+        "id": 76851,
+        "domains": [],
+        "role": {
+          "id": 1,
+          "name": "Owner",
+          "is_default": true
+        },
+        "permissions": [
+          "create_c_company",
+          "update_c_company",
+          "add_user",
+          "get_authkeys",
+          "create_authkey",
+          "update_authkey",
+          "delete_authkey",
+          "get_authkey_ips",
+          "create_authkey_ip",
+          "update_authkey_ip",
+          "delete_authkey_ip",
+          "get_c_roles",
+          "create_c_roles",
+          "update_c_roles",
+          "delete_c_roles",
+          "update_user_role",
+          "update_user",
+          "view_user",
+          "assign_permissions",
+          "remove_user_from_c_company"
+        ]
+      }
+    }
+  ],
+  "status": "success",
+  "hasError": false,
+  "errors": [],
+  "proxy_duration": 136
+}

@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Support\Facades\Http;
 use Tests\TestCase;
 
 /*
@@ -15,7 +16,7 @@ use Tests\TestCase;
 */
 
 pest()->extend(TestCase::class)
- // ->use(RefreshDatabase::class)
+    ->use(RefreshDatabase::class)
     ->in('Feature');
 
 /*
@@ -44,7 +45,45 @@ expect()->extend('toBeOne', function () {
 |
 */
 
-function something()
+/**
+ * Fake a 36Blocks `/c/getDetails` response for the given workspace/user and return the
+ * `proxy_auth_token` header needed to authenticate as them. Backed by a token => user
+ * registry (rather than a single stubbed response) so a test can call this more than
+ * once to act as several distinct workspaces/users without later calls clobbering
+ * responses for tokens obtained from earlier calls.
+ *
+ * @return array<string, string>
+ */
+function actingAsWorkspace(int $workspaceId = 76851, int $userId = 166503): array
 {
-    // ..
+    static $registry = [];
+
+    config(['services.36blocks.feature_configuration_id' => 171]);
+
+    $token = "test-token-{$userId}-{$workspaceId}";
+
+    $registry[$token] = [
+        'id' => $userId,
+        'name' => 'Test User',
+        'feature_configuration_id' => 171,
+        'currentCompany' => ['id' => $workspaceId],
+    ];
+
+    Http::fake(function ($request) use (&$registry) {
+        $token = $request->header('proxy_auth_token');
+        $token = is_array($token) ? ($token[0] ?? null) : $token;
+
+        if (! isset($registry[$token])) {
+            return Http::response(['errors' => ['Unknown token.']], 401);
+        }
+
+        return Http::response([
+            'data' => [$registry[$token]],
+            'status' => 'success',
+            'hasError' => false,
+            'errors' => [],
+        ]);
+    });
+
+    return ['proxy_auth_token' => $token];
 }
